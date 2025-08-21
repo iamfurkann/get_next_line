@@ -6,7 +6,7 @@
 /*   By: esduman <esduman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 22:17:20 by esduman           #+#    #+#             */
-/*   Updated: 2025/08/21 22:32:11 by esduman          ###   ########.fr       */
+/*   Updated: 2025/08/21 22:45:22 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,14 @@ static void	f_add(char const *s, char *new_arr, size_t *i)
 	}
 }
 
-static char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	size_t	length;
 	char	*cpy;
 	size_t	i;
 
+	if (!s)
+        return (NULL);
 	length = ft_strlen(s) + 1;
 	cpy = (char *)malloc(length);
 	if (!cpy)
@@ -73,7 +75,7 @@ static char	*ft_strdup(const char *s)
 	return (cpy);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*new_arr;
 	size_t	i;
@@ -83,13 +85,17 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1)
 		return (ft_strdup(s2));
 	if (!s2)
-		return (ft_strdup(s1));
+		return (s1);
 	new_arr = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new_arr)
+	{
+		free(s1);
 		return (NULL);
+	}
 	i = 0;
 	f_add(s1, new_arr, &i);
 	f_add(s2, new_arr, &i);
 	new_arr[i] = '\0';
+	free(s1);
 	return (new_arr);
 }

@@ -6,7 +6,7 @@
 /*   By: esduman <esduman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 22:17:20 by esduman           #+#    #+#             */
-/*   Updated: 2025/08/21 22:45:22 by esduman          ###   ########.fr       */
+/*   Updated: 2025/08/23 15:08:05 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	if (!s)
-        return (NULL);
+		return (NULL);
 	length = ft_strlen(s) + 1;
 	cpy = (char *)malloc(length);
 	if (!cpy)
@@ -88,14 +88,10 @@ char	*ft_strjoin(char *s1, char const *s2)
 		return (s1);
 	new_arr = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new_arr)
-	{
-		free(s1);
 		return (NULL);
-	}
 	i = 0;
 	f_add(s1, new_arr, &i);
 	f_add(s2, new_arr, &i);
 	new_arr[i] = '\0';
-	free(s1);
 	return (new_arr);
 }

@@ -6,7 +6,7 @@
 /*   By: esduman <esduman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 21:59:57 by esduman           #+#    #+#             */
-/*   Updated: 2025/08/29 19:02:33 by esduman          ###   ########.fr       */
+/*   Updated: 2025/08/30 17:54:09 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	*f_getline(char *cache)
 		return (NULL);
 	while (cache[i] && cache[i] != '\n')
 		i++;
-	s = malloc((i + 1)* sizeof(char));
+	s = malloc((i + 2) * sizeof(char));
 	if (!s)
 		return (NULL);
 	i = 0;
